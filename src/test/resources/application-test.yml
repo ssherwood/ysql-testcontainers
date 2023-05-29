@@ -1,0 +1,9 @@
+spring:
+  flyway:
+    clean-disabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  test:
+    database:
+      replace: none

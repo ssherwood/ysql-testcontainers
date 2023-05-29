@@ -1,0 +1,10 @@
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('b6a823e1-bc70-4a5f-b1e3-a16a0b0abe4b', 'fmanwaring0@vimeo.com', 'gserrels0', false, '5/19/2022', '3/5/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('90ed7860-bd95-40e7-804e-03936db01af2', 'sheakins1@blinklist.com', 'sgally1', false, '4/29/2023', '5/15/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('4b877ef0-37c1-46fe-85e4-157650c8a1a3', 'gvasilyevski2@answers.com', 'cmackney2', false, '9/22/2022', '5/13/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('4f6d8e72-63c7-441f-babc-edf9557383d0', 'bsteger3@ibm.com', 'csmeaton3', true, '2/4/2023', '2/9/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('f2aa9f48-3ba3-4f4a-9085-53e67187adf1', 'hbaggett4@dyndns.org', 'cfaudrie4', true, '11/22/2022', '5/3/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('16160adc-e23a-4051-a096-4c0a7d654a2c', 'tsmalman5@ft.com', 'mbassett5', false, '3/27/2023', '5/15/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('6ba1bf3d-c45b-47c3-8ec1-c585b1a23005', 'dbullerwell6@ycombinator.com', 'bbesset6', false, '8/25/2022', '4/24/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('435f9e9f-9136-4f13-becd-df6e350f1190', 'lfarenden7@jugem.jp', 'tparish7', true, '8/9/2022', '1/15/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('d0edfcf9-1afd-4fe0-8846-ee0b0fe82dd5', 'jhavile8@amazon.com', 'enorthcott8', false, '8/25/2022', '2/4/2023');
+insert into account (id, email, user_name, is_active, created_at, last_access_at) values ('05b80f10-08f9-40be-9925-2a4101e69fa4', 'ccollyns9@dyndns.org', 'bburriss9', true, '12/8/2022', '4/14/2023');

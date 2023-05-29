@@ -24,6 +24,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	runtimeOnly 'com.yugabyte:jdbc-yugabytedb:42.3.5-yb-3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:9.5.0'
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:postgresql'
 }
