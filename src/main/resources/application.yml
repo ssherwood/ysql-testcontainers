@@ -1,6 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/yugabyte
+    url: jdbc:yugabytedb://localhost:5433/yugabyte?load-balance=true&topology-keys=gcp.us-east1.*:1,gcp.us-central1.*:2,gcp.us-west1.*:3
+    driver-class-name: com.yugabyte.Driver
     username: yugabyte
   jpa:
     open-in-view: false
+
+logging.level:
+  com.yugabyte.Driver: DEBUG
