@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  yb-node1-vol:
+
+services:
+  yb-node1:
+    image: yugabytedb/yugabyte:${YUGABYTEDB_VERSION}
+    container_name: yb-node1
+    hostname: yb-node1
+    volumes:
+      - yb-node1-vol:/home/yugabyte/var
+    command: bash -c "
+      rm -rf /tmp/.yb* ;
+      bin/yugabyted start --background=false
+      --base_dir=/home/yugabyte/var
+      --fault_tolerance=zone
+      --cloud_location=gcp.us-east1.us-east1-c
+      --tserver_flags=yb_enable_read_committed_isolation=true,ysql_log_statement=all
+      "
+    ports:
+      - "5433:5433"
+      - "7000:7000"
+      - "9000:9000"
+      - "9042:9042"

@@ -1,0 +1,74 @@
+version: '3'
+
+volumes:
+  yb-node1-vol:
+  yb-node2-vol:
+  yb-node3-vol:
+
+services:
+  yb-node1:
+    image: yugabytedb/yugabyte:${YUGABYTEDB_VERSION}
+    container_name: yb-node1
+    hostname: yb-node1
+    volumes:
+      - yb-node1-vol:/home/yugabyte/var
+    command: bash -c "
+      rm -rf /tmp/.yb* ;
+      bin/yugabyted start --background=false
+      --base_dir=/home/yugabyte/var
+      --fault_tolerance=zone
+      --cloud_location=gcp.us-east1.us-east1-c
+      --master_flags=replication_factor=3
+      --tserver_flags=yb_enable_read_committed_isolation=true,ysql_log_statement=all
+      "
+    ports:
+      - "5433:5433"
+      - "7000:7000"
+      - "9000:9000"
+      - "9042:9042"
+
+  yb-node2:
+    depends_on:
+      - yb-node1
+    image: yugabytedb/yugabyte:${YUGABYTEDB_VERSION}
+    container_name: yb-node2
+    hostname: yb-node2
+    volumes:
+      - yb-node2-vol:/home/yugabyte/var
+    command: bash -c "
+      rm -rf /tmp/.yb* ;
+      bin/yugabyted start --background=false --join yb-node1
+      --base_dir=/home/yugabyte/var
+      --fault_tolerance=zone
+      --cloud_location=gcp.us-east1.us-east1-d
+      --master_flags=replication_factor=3
+      --tserver_flags=yb_enable_read_committed_isolation=true,ysql_log_statement=all
+      "
+    ports:
+      - "5434:5433"
+      - "7001:7000"
+      - "9001:9000"
+      - "9043:9042"
+
+  yb-node3:
+    depends_on:
+      - yb-node1
+    image: yugabytedb/yugabyte:${YUGABYTEDB_VERSION}
+    container_name: yb-node3
+    hostname: yb-node3
+    volumes:
+      - yb-node3-vol:/home/yugabyte/var
+    command: bash -c "
+      rm -rf /tmp/.yb* ;
+      bin/yugabyted start --background=false --join yb-node1
+      --base_dir=/home/yugabyte/var
+      --fault_tolerance=zone
+      --cloud_location=gcp.us-east1.us-east1-f
+      --master_flags=replication_factor=3
+      --tserver_flags=yb_enable_read_committed_isolation=true,ysql_log_statement=all
+      "
+    ports:
+      - "5435:5433"
+      - "7002:7000"
+      - "9002:9000"
+      - "9044:9042"
