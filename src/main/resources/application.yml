@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/yugabyte
+    username: yugabyte
+  jpa:
+    open-in-view: false
