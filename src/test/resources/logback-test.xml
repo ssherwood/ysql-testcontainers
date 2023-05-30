@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Activates on "test" profile and configures testcontainers logger to use the same format as Spring Boot -->
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <!-- To troubleshoot issues with Testcontainers, increase the logging level of org.testcontainers to DEBUG -->
+    <logger name="org.testcontainers" level="INFO"/>
+    <logger name="tc" level="INFO"/>
+    <logger name="com.github.dockerjava" level="WARN"/>
+    <logger name="com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.wire" level="OFF"/>
+</configuration>
