@@ -3,6 +3,7 @@ package com.yugabyte.labs.ysql.tc;
 import org.flywaydb.test.FlywayTestExecutionListener;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
@@ -22,8 +23,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
-@ActiveProfiles({"test", "testcontainer-defaults"})
+@ActiveProfiles({"test"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
+//@Testcontainers
+@ExtendWith(IntegrationTestExtension.class)
 public class FlywayMigrationTests {
 
     @Autowired

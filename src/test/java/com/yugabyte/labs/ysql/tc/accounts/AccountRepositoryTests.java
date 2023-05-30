@@ -1,8 +1,10 @@
 package com.yugabyte.labs.ysql.tc.accounts;
 
+import com.yugabyte.labs.ysql.tc.IntegrationTestExtension;
 import org.flywaydb.test.FlywayTestExecutionListener;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -17,8 +19,9 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @DataJpaTest
-@ActiveProfiles({"test", "testcontainer-defaults"})
+@ActiveProfiles({"test"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
+@ExtendWith(IntegrationTestExtension.class)
 public class AccountRepositoryTests {
 
     @Autowired
