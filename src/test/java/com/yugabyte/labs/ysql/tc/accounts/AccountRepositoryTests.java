@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @DataJpaTest
-@ActiveProfiles({"test"})
+@ActiveProfiles({"test", "testcontainer-defaults"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
 public class AccountRepositoryTests {
 

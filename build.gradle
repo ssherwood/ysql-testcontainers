@@ -13,7 +13,9 @@ repositories {
 }
 
 ext {
-	set('testcontainersVersion', "1.18.1")
+	set('testcontainersVersion', "1.18.0")
+	set('yugabyteDriverVersion', "42.3.5-yb-3")
+	set('flywayTestExtensionsVersion', "9.5.0")
 }
 
 dependencies {
@@ -22,11 +24,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.flywaydb:flyway-core'
 	runtimeOnly 'org.postgresql:postgresql'
-	runtimeOnly 'com.yugabyte:jdbc-yugabytedb:42.3.5-yb-3'
+	runtimeOnly "com.yugabyte:jdbc-yugabytedb:${yugabyteDriverVersion}"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:9.5.0'
+	testImplementation "org.flywaydb.flyway-test-extensions:flyway-spring-test:${flywayTestExtensionsVersion}"
 	testImplementation 'org.testcontainers:junit-jupiter'
-	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'org.testcontainers:yugabytedb'
 }
 
 dependencyManagement {
